@@ -1,15 +1,15 @@
-# Virtual-Diary-Project
+### Virtual-Diary-Project
 
-## Objectives
+### Objectives
 
-## Basic Requirements
+### Basic Requirements
 
-## Setup
+### Setup
 
 ### Dependencies
 
 ### Database Prep
 
-## Notes
+### Notes
 
 _This is a student project that was created at [CodeOp](http://codeop.tech), a full stack development bootcamp in Barcelona._
