@@ -8,6 +8,12 @@ In this repository, you will create a virtual diary.
 - Build a backend with Express.
 - Create a front end with React.
 
+# Frontend
+
+This is a mockup of the frontend.
+
+![virtual diary](my_virtual_diary.png)
+
 ## Setup
 
 Open 3 terminals. The first for FRONTEND, the second for BACKEND the third for MYSQL.
