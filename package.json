@@ -3,10 +3,11 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "nodemon ./bin/www", 
+    "start": "nodemon ./bin/www",
     "migrate": "node model/database.js"
   },
   "dependencies": {
+    "body-parser": "^1.19.0",
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
     "dotenv": "^8.2.0",
@@ -16,5 +17,4 @@
     "mysql": "^2.18.1",
     "nodemon": "^2.0.4"
   }
-  
 }
