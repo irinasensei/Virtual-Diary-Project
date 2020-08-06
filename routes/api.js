@@ -7,26 +7,34 @@ router.use(bodyParser.json());
 
 /* GET diaries page. */
 router.get("/", function(req, res, next) {
-    db("SELECT * FROM information")
+    db("SELECT * FROM information;")
     .then(results => {
         res.send(results.data);
     })
     .catch(err => res.status(500).send(err));
 });
 
+/* GET the last. */
+// router.get("/", function(req, res, next) {
+//   db("SELECT * FROM information ORDER BY ID DESC LIMIT 1;")
+//   .then(results => {
+//       res.send(results.data);
+//   })
+//   .catch(err => res.status(500).send(err));
+// });
 
 /* GET date page. Search for one specific date */
-router.get("/:date", function(req, res, next) {
-    const { date } = req.params;
-    if(date){
-    db("SELECT * FROM information WHERE date >= '2020-01-01' AND date <= '2021-01-01'")
-    // `SELECT * FROM information WHERE date = ${date}`
-    .then(results => {
-        res.send(results.data);
-    })
-    .catch(err => res.status(500).send(err));
-}
-});
+// router.get("/:date", function(req, res, next) {
+//     const { date } = req.params;
+//     if(date){
+//     db("SELECT * FROM information WHERE date >= '${req.body.date}' AND date <= '2021-01-01'")
+//     // `SELECT * FROM information WHERE date = ${date}`
+//     .then(results => {
+//         res.send(results.data);
+//     })
+//     .catch(err => res.status(500).send(err));
+// }
+// });
 
 
 /* POST a new diaries. */
@@ -43,7 +51,7 @@ router.post("/", (req, res) => {
 router.delete("/:id", (req, res) => {
     const { id } = req.params;
     if (id) {
-      db(`delete from information where id = "${id}"`)
+      db(`delete from information where id = "${id}";`)
         .then(results => res.send("Item deleted"))
         .catch(err => res.status(500).send(err));
     }
