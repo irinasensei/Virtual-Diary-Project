@@ -14,14 +14,6 @@ router.get("/", function(req, res, next) {
     .catch(err => res.status(500).send(err));
 });
 
-/* GET the last. */
-// router.get("/", function(req, res, next) {
-//   db("SELECT * FROM information ORDER BY ID DESC LIMIT 1;")
-//   .then(results => {
-//       res.send(results.data);
-//   })
-//   .catch(err => res.status(500).send(err));
-// });
 
 /* GET date page. Search for one specific date */
 // router.get("/:date", function(req, res, next) {
