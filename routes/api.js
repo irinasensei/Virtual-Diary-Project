@@ -43,9 +43,17 @@ router.post("/", (req, res) => {
 router.delete("/:id", (req, res) => {
     const { id } = req.params;
     if (id) {
+      
       db(`delete from information where id = "${id}";`)
-        .then(results => res.send("Item deleted"))
+        // .then(results => res.send("Item deleted"))
+        .then(() => {
+      db("SELECT * FROM information;")
+        .then(results => {
+          res.status(200).send(results.data);
+        })
         .catch(err => res.status(500).send(err));
+    })
+    .catch(err => res.status(500).send(err));
     }
   });
    

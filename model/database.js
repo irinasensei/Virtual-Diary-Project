@@ -19,7 +19,7 @@ con.connect(function(err) {
   console.log("Connected!");
 
   let sql =
-    "DROP TABLE if exists information; CREATE TABLE information (id INT NOT NULL AUTO_INCREMENT, date TIMESTAMP not null, text VARCHAR(250) not null, PRIMARY KEY (id));";
+    "DROP TABLE if exists information; CREATE TABLE information (id INT NOT NULL AUTO_INCREMENT, date TIMESTAMP not null, text VARCHAR(500) not null, PRIMARY KEY (id));";
   con.query(sql, function(err, result) {
     if (err) throw err;
     console.log("Table creation `information` was successful!");
