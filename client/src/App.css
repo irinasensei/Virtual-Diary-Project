@@ -7,6 +7,10 @@
   height:100%; 
   width:100%;
   background-color: #F0F3F4;
+  border-style: double;
+  border-color: #A569BD;
+  ;
+  border-spacing: 50px;
 }
 
 input[type=text] {
@@ -15,6 +19,5 @@ input[type=text] {
   color: #A569BD;
   border: #8ae9d7;
 }
-
 
 

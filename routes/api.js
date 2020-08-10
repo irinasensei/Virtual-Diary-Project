@@ -14,21 +14,6 @@ router.get("/", function(req, res, next) {
     .catch(err => res.status(500).send(err));
 });
 
-
-/* GET date page. Search for one specific date */
-// router.get("/:date", function(req, res, next) {
-//     const { date } = req.params;
-//     if(date){
-//     db("SELECT * FROM information WHERE date >= '${req.body.date}' AND date <= '2021-01-01'")
-//     // `SELECT * FROM information WHERE date = ${date}`
-//     .then(results => {
-//         res.send(results.data);
-//     })
-//     .catch(err => res.status(500).send(err));
-// }
-// });
-
-
 /* POST a new diaries. */
 router.post("/", (req, res) => {
     db(`insert into information (date, text) values (STR_TO_DATE("${req.body.date}", '%d/%m/%Y'), "${req.body.text}");`)
@@ -45,7 +30,6 @@ router.delete("/:id", (req, res) => {
     if (id) {
       
       db(`delete from information where id = "${id}";`)
-        // .then(results => res.send("Item deleted"))
         .then(() => {
       db("SELECT * FROM information;")
         .then(results => {

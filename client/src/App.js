@@ -13,7 +13,7 @@ class App extends React.Component {
     };
   }
 
-  //mostrar mi lista en la pantalla
+  //show my list in the div in the top 
   componentDidMount() {
     this.getInformation();
   }
@@ -28,8 +28,6 @@ class App extends React.Component {
       });
   };
   
-  // ??? 
-
 
   handleInput = (event) => {
     this.setState({
@@ -38,14 +36,13 @@ class App extends React.Component {
     });
   }
 
-  //???
+  
   dateAgost = (event) => {
     this.setState({
       date: event.target.value
     });
   }
 
-  //adherir informacion a la base de datos
   addDay(){
     
     if(this.state.text === "" || this.state.text === undefined || this.state.date === "" || this.state.date === undefined) {
@@ -98,7 +95,7 @@ class App extends React.Component {
       this.setState({
         date: "",
         text: ""
-    });
+      });
     })
     
   };
@@ -124,6 +121,7 @@ class App extends React.Component {
         <div style={{ fontSize: 10, color: "red"}}>
           {this.state.textError}          
         </div>
+
         <input 
         type="text" 
         value={date} 
