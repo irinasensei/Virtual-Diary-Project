@@ -94,8 +94,11 @@ class App extends React.Component {
       }
     })
     .then(myJSON => {
-      console.log(myJSON);
       this.setState({information: myJSON});
+      this.setState({
+        date: "",
+        text: ""
+    });
     })
     
   };
