@@ -1,23 +1,38 @@
 .App {
   text-align: center;
-  text-shadow: #74EBD5 0.1em 0.1em 0.1em;
-  color: #A569BD;
+  text-shadow: #74ebd5 0.1em 0.1em 0.1em;
+  color: #a569bd;
   scroll-padding-block: 100px;
-  position:absolute; 
-  height:100%; 
-  width:100%;
-  background-color: #F0F3F4;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-color: #f0f3f4;
   border-style: double;
-  border-color: #A569BD;
-  ;
+  border-color: #a569bd;
   border-spacing: 50px;
 }
 
-input[type=text] {
-  background-color: #74EBD5;
-  background-image: linear-gradient(90deg, #74EBD5 2%, #9FACE6 90%);
-  color: #A569BD;
+input[type="date"] {
+  background-color: #74ebd5;
+  background-image: linear-gradient(90deg, #74ebd5 2%, #9face6 90%);
+  color: #a569bd;
+  border: #8ae9d7;
+}
+textarea[type="text"] {
+  background-color: #74ebd5;
+  background-image: linear-gradient(90deg, #74ebd5 2%, #9face6 90%);
+  color: #a569bd;
   border: #8ae9d7;
 }
 
-
+#pastrecords {
+  background-color: #74ebd5;
+  background-image: linear-gradient(90deg, #74ebd5 2%, #9face6 90%);
+  color: #a569bd;
+  border: #8ae9d7;
+  position: fixed;
+  position: absolute;
+  left: 10px;
+  top: 400px;
+  width: 20%;
+}
