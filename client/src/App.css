@@ -1,40 +1,113 @@
+body {
+  font-family: "Kalam", cursive;
+}
+
+h2 {
+  font-size: 48pt;
+  color: cornsilk;
+  text-shadow: 2px 2px #a569bd;
+  margin-bottom: 20pt;
+}
+
 .App {
   text-align: center;
   text-shadow: #74ebd5 0.1em 0.1em 0.1em;
-  color: #a569bd;
-  scroll-padding-block: 100px;
 
-  width: 100%;
-  background-color: #f0f3f4;
+  background-color: #8ae9d7;
   padding: 20pt;
-  text-align: center;
+  scroll-padding-block: 100px;
+  width: 100%;
 }
 
 input[type="date"] {
   background-color: #74ebd5;
   background-image: linear-gradient(90deg, #74ebd5 2%, #9face6 90%);
-  color: #a569bd;
+  color: cornsilk;
   border: #8ae9d7;
+  margin-top: 20pt;
+  width: 100%;
+  height: 48pt;
+  box-shadow: 3px 2px 2px #a569bd;
+  font-size: 16pt;
 }
+
 textarea[type="text"] {
   background-color: #74ebd5;
   background-image: linear-gradient(90deg, #74ebd5 2%, #9face6 90%);
-  color: #a569bd;
+  color: cornsilk;
   border: #8ae9d7;
+  height: 300pt;
+  box-shadow: 3px 2px 2px #a569bd;
+  font-size: 24pt;
+  font-family: "Kalam", cursive;
+  text-align: center;
+  padding-top: 24pt;
 }
 
-#pastrecords {
+::placeholder {
+  font-family: "Kalam", cursive;
+  font-size: 24pt;
+  text-indent: 8pt;
+  padding-top: 8pt;
+}
+
+#outputarea {
   background-color: #74ebd5;
-  background-image: linear-gradient(90deg, #74ebd5 2%, #9face6 90%);
+  background-image: linear-gradient(90deg, #9face6 2%, #74ebd5 90%);
   color: #a569bd;
   border: #8ae9d7;
+
+  padding: 20pt;
+  margin: 20pt;
+  border-radius: 4pt;
+  box-shadow: 3px 2px 2px #a569bd;
 }
 
 #outercontainer {
-  background-color: #74ebd5;
-  grid-template-columns: auto;
+  border-radius: 4pt;
+  background-color: cornsilk;
+  display: flex;
+  box-shadow: 8px 3px 3px #b2c2bf;
 }
 
 #inputarea {
-  background-color: #a569bd;
+  padding: 10pt;
+  margin: 10pt;
+  border-radius: 4pt;
+  font-family: "Kalam", cursive;
+}
+
+#displaypastrecord {
+  background-color: cornsilk;
+  max-width: 90%;
+  padding: 20pt;
+  margin-top: 20pt;
+  border-radius: 4pt;
+  height: 200pt;
+  box-shadow: 3px 2px 2px #a569bd;
+  font-family: "Kalam", cursive;
+  font-size: 22pt;
+  line-height: 24pt;
+}
+
+.btn {
+  color: #a569bd;
+  border-color: #a569bd;
+  box-shadow: 2px 1px 1px #a569bd;
+  font-size: 16pt;
+}
+
+#subtitle {
+  color: cornsilk;
+  font-size: 32pt;
+
+  padding-bottom: 10pt;
+  margin-top: 10pt;
+  text-shadow: 1px 1px #a569bd;
+}
+
+#binbutton {
+  position: absolute;
+  top: 660px;
+  right: 100px;
 }

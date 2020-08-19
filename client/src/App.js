@@ -1,6 +1,7 @@
 import React from "react";
 import "./App.css";
 import MyCalendar from "./calendar.js";
+import "react-calendar/dist/Calendar.css";
 
 class App extends React.Component {
   constructor(props) {
@@ -11,6 +12,7 @@ class App extends React.Component {
       date: "",
       information: [],
       input: "",
+      id: 0,
     };
   }
 
@@ -84,8 +86,8 @@ class App extends React.Component {
     }
   }
 
-  viewText(value) {
-    this.setState({ text: value });
+  viewText(value, id = 0) {
+    this.setState({ text: value, id: id });
   }
 
   clickOnDate(v, e) {
@@ -97,7 +99,7 @@ class App extends React.Component {
     //console.log(item);
     //console.log(clickDate);
     if (item) {
-      this.viewText(item.text);
+      this.viewText(item.text, item.id);
     } else {
       this.viewText("No entry found for this date");
     }
@@ -106,6 +108,9 @@ class App extends React.Component {
   }
 
   deleteDate(id) {
+    const { text } = this.state;
+    //const record = text.find((e) => e.id === id);
+
     fetch(`/diary/${id}`, {
       method: "DELETE",
       headers: {
@@ -124,83 +129,69 @@ class App extends React.Component {
         this.setState({
           date: "",
           input: "",
+          id: 0,
         });
       });
+    this.viewText("No entry found for this date");
   }
-  /* probably didn't use it
-  function() {
-    `#datetimepicker12`.datetimepicker({
-      inline: true,
-      sideBySide: true,
-    });
-  }
-*/
+
   render() {
     const { text, date, information } = this.state;
     return (
-      <div className="App" id="outercontainer">
-        <div className="container" id="inputarea">
-          <h2>MY VIRTUAL DIARY PROJECT</h2>
-          <textarea
-            type="text"
-            value={this.state.input}
-            onChange={this.handleInput}
-            placeholder="How was your day?.."
-            maxLength="500"
-            className="form-control"
-            name="input"
-          ></textarea>
-          <div style={{ fontSize: 10, color: "red" }}>
-            {this.state.textError}
-          </div>
-          <input
-            type="date"
-            value={date}
-            onChange={this.dateAgost}
-            //placeholder="00/00/0000" //removed by Irina
-          />
-
-          {this.state.showError ? (
-            <div className="text-danger">
-              <i>All inputs are required</i>
+      <div className="App p-4">
+        <h2>MY VIRTUAL DIARY PROJECT</h2>
+        <div className="container" id="outercontainer">
+          <div className="container col-5" id="inputarea">
+            <textarea
+              type="text"
+              value={this.state.input}
+              onChange={this.handleInput}
+              placeholder="How was your day?.."
+              maxLength="500"
+              className="form-control"
+              name="input"
+            ></textarea>
+            <div style={{ fontSize: 10, color: "red" }}>
+              {this.state.textError}
             </div>
-          ) : (
-            <div></div>
-          )}
-          <br></br>
-          <button
-            onClick={(e) => this.addDay()}
-            className="btn btn-outline-secondary btn-sm "
-          >
-            <b>Add this record to my journal!</b>
-          </button>
-          <br></br>
-        </div>
-        <div className="container" id="pastrecords">
-          <p> My past records</p>
+            <input type="date" value={date} onChange={this.dateAgost} />
 
-          {information.map((each) => {
-            return (
-              <div key={each.id}>
-                <button onClick={() => this.viewText(each.text)}>
-                  {each.date}
-                </button>
-                <button
-                  className="btn btn-lg"
-                  onClick={() => this.deleteDate(each.id)}
-                >
-                  <i className="fa fa-trash" aria-hidden="true"></i>
-                </button>
+            {this.state.showError ? (
+              <div className="text-danger">
+                <i>All inputs are required</i>
               </div>
-            );
-          })}
+            ) : (
+              <div></div>
+            )}
+            <br></br>
+            <button onClick={(e) => this.addDay()} className="btn btn-lg p-3">
+              <b>Add this record to my diary!</b>
+            </button>
+            <br></br>
+          </div>
+
+          <div className="container col-6" id="outputarea">
+            <p id="subtitle"> View past records</p>
+            <div className="container col-9">
+              <MyCalendar clickOnDate={(v, e) => this.clickOnDate(v, e)} />
+            </div>
+
+            <div
+              className="container"
+              id="displaypastrecord"
+              key={this.state.information}
+            >
+              {text}
+              <button
+                className="btn btn-lg"
+                id="binbutton"
+                onClick={() => this.deleteDate(this.state.id)}
+              >
+                <i className="fa fa-trash" aria-hidden="true"></i>
+              </button>
+            </div>
+          </div>
         </div>
-
-        <MyCalendar clickOnDate={(v, e) => this.clickOnDate(v, e)} />
-
-        <br></br>
-
-        <div className="container bg-light">{text}</div>
       </div>
     );
   }

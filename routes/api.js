@@ -43,7 +43,7 @@ router.post("/", (req, res) => {
 });
 
 /* DELETE one diaries page. */
-router.delete("/:id", (req, res) => {
+router.delete("/:id", async (req, res) => {
   const { id } = req.params;
   if (id) {
     db(`delete from information where id = "${id}";`)
